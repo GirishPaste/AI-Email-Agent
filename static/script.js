@@ -16,7 +16,12 @@ const tone = document.getElementById("tone");
 const purpose = document.getElementById("purpose");
 
 const emailPreview = document.getElementById("emailPreview");
+const emailButtons = document.getElementById("emailButtons");
+const template1 = document.getElementById("template1");
+const template2 = document.getElementById("template2");
+const template3 = document.getElementById("template3");
 
+let generatedTemplates = [];
 // ===============================
 // Generate Email
 // ===============================
@@ -54,15 +59,14 @@ generateBtn.addEventListener("click", () => {
 
     subject.value = data.subject;
 
-    emailPreview.innerHTML = `
-<strong>Subject:</strong> ${data.subject}
+    generatedTemplates = data.templates;
+    activateButton(template1);
 
-<br><br>
+emailButtons.style.display = "block";
 
-${data.templates[0].replace(/\n/g, "<br>")}
-`;
+showTemplate(0);
 
-    updateScore();
+updateScore();
 
 })
 .catch(error => {
@@ -142,7 +146,7 @@ function updateScore(){
     if(purpose.value.length>100)
         score+=3;
 
-    if(tone.value==="Very Formal")
+    if(tone.value==="Formal")
         score+=5;
 
     if(score>100)
@@ -156,57 +160,6 @@ function updateScore(){
 // Template Click
 // ===============================
 
-const templates=document.querySelectorAll(".template-card");
-
-templates.forEach(card=>{
-
-    card.addEventListener("click",()=>{
-
-        const text=card.innerText;
-
-        if(text.includes("Leave")){
-
-            emailType.value="Leave Application";
-            subject.value="Leave Application";
-            purpose.value="I am requesting leave due to personal reasons.";
-
-        }
-
-        else if(text.includes("Complaint")){
-
-            emailType.value="Complaint";
-            subject.value="Complaint Regarding Issue";
-            purpose.value="I would like to bring an issue to your attention.";
-
-        }
-
-        else if(text.includes("Internship")){
-
-            emailType.value="Internship Request";
-            subject.value="Internship Application";
-            purpose.value="I would like to apply for an internship opportunity.";
-
-        }
-
-        else if(text.includes("Scholarship")){
-
-            emailType.value="Scholarship Request";
-            subject.value="Scholarship Application";
-            purpose.value="I would like to request consideration for a scholarship.";
-
-        }
-
-        else if(text.includes("Meeting")){
-
-            emailType.value="Meeting Request";
-            subject.value="Meeting Request";
-            purpose.value="I would like to request a meeting at your convenience.";
-
-        }
-
-    });
-
-});
 
 // ===============================
 // Smooth Page Load
@@ -225,3 +178,41 @@ window.addEventListener("load",()=>{
     },100);
 
 });
+function showTemplate(index){
+
+    emailPreview.innerHTML = `
+    <div class="generated-email">
+
+    <h3>Subject: ${subject.value}</h3>
+
+    <hr>
+
+    ${generatedTemplates[index]
+        .replace(/\n/g, "<br>")}
+    </div>
+    `;
+}
+function activateButton(button){
+
+    template1.classList.remove("active");
+    template2.classList.remove("active");
+    template3.classList.remove("active");
+
+    button.classList.add("active");
+
+}
+
+template1.onclick = () => {
+    activateButton(template1);
+    showTemplate(0);
+};
+
+template2.onclick = () => {
+    activateButton(template2);
+    showTemplate(1);
+};
+
+template3.onclick = () => {
+    activateButton(template3);
+    showTemplate(2);
+};

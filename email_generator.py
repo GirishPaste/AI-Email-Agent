@@ -35,27 +35,43 @@ def generate_email(email_type, tone, recipient, purpose, sender_name):
     )
 
     instruction = """
-Generate ONLY THREE different professional email templates.
+    Generate EXACTLY THREE different professional email templates.
 
-Return ONLY JSON.
+    Return ONLY valid JSON.
 
-{
-    "templates": [
+    {
+      "templates": [
         "",
         "",
         ""
-    ]
-}
+      ]
+    }
 
-Rules:
-- No markdown.
-- No ```json.
-- Each email must contain:
-  Greeting
-  Body
-  Professional Closing
-"""
+    IMPORTANT FORMATTING RULES:
 
+    Each email MUST follow this exact structure:
+
+    Dear <recipient>,
+
+    I hope you are doing well.
+
+    <Main purpose paragraph>
+
+    <Supporting details paragraph>
+
+    Thank you for your time and consideration.
+
+    Sincerely,
+    <sender_name>
+
+    VERY IMPORTANT:
+    - Insert ONE blank line after the greeting.
+    - Insert ONE blank line between every paragraph.
+    - Put "Sincerely," on its own line.
+    - Put the sender name on the next line.
+    - Do NOT write everything in one paragraph.
+    - Do NOT include the subject.
+    """
     response = generate_response(
         SYSTEM_PROMPT,
         user_prompt + instruction
