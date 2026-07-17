@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Formal Email Assistant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            🤖 AI Email Assistant
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Templates</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+
+        <button id="darkModeBtn">
+            🌙
+        </button>
+    </nav>
+
+    <!-- MAIN LAYOUT -->
+    <div class="container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <h2>Menu</h2>
+
+            <button class="menu-btn active">
+                📧 Email Generator
+            </button>
+
+            <button class="menu-btn">
+                📄 Templates
+            </button>
+
+            <button class="menu-btn">
+                📚 Regulations
+            </button>
+
+            <button class="menu-btn">
+                👔 Authority Tips
+            </button>
+
+            <button class="menu-btn">
+                ⭐ Saved Emails
+            </button>
+
+        </aside>
+
+        <!-- CENTER -->
+        <main class="main-content">
+
+            <div class="card">
+
+                <h1>Generate Professional Email</h1>
+
+                <div class="form-group">
+
+                    <label>Email Type</label>
+
+                    <select id="emailType">
+                        <option>Sick Leave</option>
+                        <option>Meeting Request</option>
+                        <option>File Submission</option>
+                        <option>Project Update</option>
+                        <option>Follow-up Email</option>
+                        <option>Complaint</option>
+                        <option>Deadline Extension</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Recipient</label>
+
+                    <input
+                        type="text"
+                        id="recipient"
+                        placeholder="Principal / HR / Professor">
+
+                </div>
+
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input
+                            type="text"
+                            id="senderName"
+                            placeholder="Your Name">
+                </div>
+
+                <div class="form-group">
+
+                    <label>Subject</label>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        placeholder="Enter email subject">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Tone</label>
+
+                    <select id="tone">
+                        <option>Professional</option>
+                        <option>Formal</option>
+                        <option>Friendly Professional</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Purpose</label>
+
+                    <textarea
+                        id="purpose"
+                        rows="6"
+                        placeholder="Describe your request..."></textarea>
+
+                </div>
+
+                <div class="button-row">
+
+                    <button id="generateBtn" class="primary-btn">
+                        ✨ Generate Email
+                    </button>
+
+                    <button id="clearBtn" class="secondary-btn">
+                        Clear
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- GENERATED EMAIL -->
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    <h2>Generated Email</h2>
+
+                    <button id="copyBtn">
+                        📋 Copy
+                    </button>
+
+                </div>
+
+                <div id="emailPreview">
+
+                    <p>Your generated email will appear here...</p>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <!-- RIGHT PANEL -->
+
+        <aside class="right-panel">
+
+            <!-- TEMPLATES -->
+
+            <div class="card">
+
+                <h2>Email Templates</h2>
+
+                <div class="template-card">
+                    📄 Leave Application
+                </div>
+
+                <div class="template-card">
+                    📄 Complaint Letter
+                </div>
+
+                <div class="template-card">
+                    📄 Internship Request
+                </div>
+
+                <div class="template-card">
+                    📄 Scholarship Request
+                </div>
+
+                <div class="template-card">
+                    📄 Meeting Request
+                </div>
+
+            </div>
+
+            <!-- REGULATIONS -->
+
+            <div class="card">
+
+                <h2>Email Regulations</h2>
+
+                <ul class="tips">
+
+                    <li>✔ Keep subject concise.</li>
+
+                    <li>✔ Be respectful.</li>
+
+                    <li>✔ Mention your purpose early.</li>
+
+                    <li>✔ Keep paragraphs short.</li>
+
+                    <li>✔ End with gratitude.</li>
+
+                </ul>
+
+            </div>
+
+            <!-- AUTHORITY -->
+
+            <div class="card">
+
+                <h2>Meeting Tips</h2>
+
+                <ul class="tips">
+
+                    <li>👔 Dress professionally.</li>
+
+                    <li>🚪 Knock before entering.</li>
+
+                    <li>🙂 Introduce yourself politely.</li>
+
+                    <li>🗣 Mention you've emailed already.</li>
+
+                    <li>🙏 Thank the authority.</li>
+
+                </ul>
+
+            </div>
+
+            <!-- AI COACH -->
+
+            <div class="card">
+
+                <h2>AI Email Coach</h2>
+
+                <div class="score-box">
+
+                    <h3>Professional Score</h3>
+
+                    <div class="score-circle">
+
+                        92%
+
+                    </div>
+
+                </div>
+
+                <ul class="tips">
+
+                    <li>⭐ Great subject line</li>
+
+                    <li>⭐ Formal language</li>
+
+                    <li>⭐ Clear structure</li>
+
+                    <li>⚠ Keep email under 200 words</li>
+
+                </ul>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        AI Formal Email Assistant • Made with ❤️
+
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

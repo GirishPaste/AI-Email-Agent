@@ -1,0 +1,42 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:#f4f7fb;color:#1e293b}
+.navbar{height:70px;background:#2563eb;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:0 30px;position:sticky;top:0}
+.logo{font-size:22px;font-weight:700}
+.nav-links{display:flex;list-style:none;gap:24px}
+.nav-links a{text-decoration:none;color:#fff}
+#darkModeBtn{border:none;background:#fff;color:#2563eb;padding:8px 12px;border-radius:8px;cursor:pointer}
+.container{display:grid;grid-template-columns:220px 1fr 320px;gap:20px;padding:20px}
+.sidebar,.right-panel{display:flex;flex-direction:column;gap:16px}
+.sidebar h2{margin-bottom:10px}
+.menu-btn{padding:14px;border:none;border-radius:12px;background:#fff;cursor:pointer;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.menu-btn.active,.menu-btn:hover{background:#2563eb;color:#fff}
+.main-content{display:flex;flex-direction:column;gap:20px}
+.card{background:#fff;border-radius:16px;padding:22px;box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.card h1,.card h2{margin-bottom:16px}
+.form-group{display:flex;flex-direction:column;margin-bottom:16px}
+label{margin-bottom:6px;font-weight:600}
+input,select,textarea{padding:12px;border:1px solid #d1d5db;border-radius:10px;font-size:15px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#2563eb}
+.button-row{display:flex;gap:10px}
+.primary-btn,.secondary-btn,#copyBtn{padding:12px 18px;border:none;border-radius:10px;cursor:pointer}
+.primary-btn{background:#2563eb;color:#fff}
+.secondary-btn{background:#e5e7eb}
+.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+#emailPreview{background:#f8fafc;border:1px dashed #cbd5e1;border-radius:10px;padding:18px;min-height:220px;white-space:pre-wrap}
+.template-card{padding:12px;background:#eef4ff;border-radius:10px;margin:8px 0;cursor:pointer;transition:.2s}
+.template-card:hover{transform:translateY(-2px);background:#dbeafe}
+.tips{padding-left:18px}
+.tips li{margin:8px 0}
+.score-box{text-align:center}
+.score-circle{width:90px;height:90px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;margin:15px auto}
+footer{text-align:center;padding:20px;color:#64748b}
+.dark-mode{background:#0f172a;color:#e2e8f0}
+.dark-mode .card,.dark-mode .menu-btn{background:#1e293b;color:#e2e8f0}
+.dark-mode input,.dark-mode select,.dark-mode textarea{background:#0f172a;color:#fff;border-color:#475569}
+.dark-mode #emailPreview{background:#0f172a;border-color:#475569}
+.dark-mode .template-card{background:#334155}
+.dark-mode .secondary-btn{background:#475569;color:#fff}
+@media(max-width:1100px){
+.container{grid-template-columns:1fr}
+.sidebar,.right-panel{flex-direction:row;overflow:auto}
+}
