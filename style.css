@@ -40,3 +40,41 @@ footer{text-align:center;padding:20px;color:#64748b}
 .container{grid-template-columns:1fr}
 .sidebar,.right-panel{flex-direction:row;overflow:auto}
 }
+
+/* ===============================
+   TAB SWITCHING & SAVED EMAILS
+   =============================== */
+.tab-content {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tab-content.active {
+    display: flex;
+}
+
+#saveBtn {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #eab308;
+    color: #fff;
+    margin-left: 8px;
+    font-weight: 500;
+}
+
+.saved-email-item {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 15px;
+    white-space: pre-wrap;
+}
+
+.dark-mode .saved-email-item {
+    background: #1e293b;
+    border-color: #475569;
+}

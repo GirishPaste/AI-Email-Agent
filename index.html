@@ -35,245 +35,191 @@
 
         <!-- SIDEBAR -->
         <aside class="sidebar">
-
             <h2>Menu</h2>
-
-            <button class="menu-btn active">
+            <button class="menu-btn active" data-target="tab-generator">
                 📧 Email Generator
             </button>
-
-            <button class="menu-btn">
+            <button class="menu-btn" data-target="tab-templates">
                 📄 Templates
             </button>
-
-            <button class="menu-btn">
+            <button class="menu-btn" data-target="tab-regulations">
                 📚 Regulations
             </button>
-
-            <button class="menu-btn">
+            <button class="menu-btn" data-target="tab-authority">
                 👔 Authority Tips
             </button>
-
-            <button class="menu-btn">
+            <button class="menu-btn" data-target="tab-saved">
                 ⭐ Saved Emails
             </button>
-
         </aside>
 
         <!-- CENTER -->
         <main class="main-content">
 
-            <div class="card">
+            <!-- TAB 1: GENERATOR (Active by default) -->
+            <div id="tab-generator" class="tab-content active">
+                <div class="card">
+                    <h1>Generate Professional Email</h1>
+                    <div class="form-group">
+                        <label>Email Type</label>
+                        <select id="emailType">
+                            <option>Leave Application</option>
+                            <option>Meeting Request</option>
+                            <option>Complaint</option>
+                            <option>Permission Letter</option>
+                            <option>Scholarship Request</option>
+                            <option>Internship Request</option>
+                        </select>
+                    </div>
 
-                <h1>Generate Professional Email</h1>
+                    <div class="form-group">
+                        <label>Recipient</label>
+                        <input type="text" id="recipient" placeholder="Principal / HR / Professor">
+                    </div>
 
-                <div class="form-group">
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" id="subject" placeholder="Enter email subject">
+                    </div>
 
-                    <label>Email Type</label>
+                    <div class="form-group">
+                        <label>Tone</label>
+                        <select id="tone">
+                            <option>Formal</option>
+                            <option>Very Formal</option>
+                            <option>Friendly</option>
+                            <option>Professional</option>
+                        </select>
+                    </div>
 
-                    <select id="emailType">
-                        <option>Leave Application</option>
-                        <option>Meeting Request</option>
-                        <option>Complaint</option>
-                        <option>Permission Letter</option>
-                        <option>Scholarship Request</option>
-                        <option>Internship Request</option>
-                    </select>
+                    <div class="form-group">
+                        <label>Purpose</label>
+                        <textarea id="purpose" rows="6" placeholder="Describe your request..."></textarea>
+                    </div>
 
+                    <div class="button-row">
+                        <button id="generateBtn" class="primary-btn">
+                            ✨ Generate Email
+                        </button>
+                        <button id="clearBtn" class="secondary-btn">
+                            Clear
+                        </button>
+                    </div>
                 </div>
 
-                <div class="form-group">
-
-                    <label>Recipient</label>
-
-                    <input
-                        type="text"
-                        id="recipient"
-                        placeholder="Principal / HR / Professor">
-
+                <!-- GENERATED EMAIL -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Generated Email</h2>
+                        <div>
+                            <button id="copyBtn">📋 Copy</button>
+                            <button id="saveBtn">⭐ Save</button>
+                        </div>
+                    </div>
+                    <div id="emailPreview">
+                        <p>Your generated email will appear here...</p>
+                    </div>
                 </div>
-
-                <div class="form-group">
-
-                    <label>Subject</label>
-
-                    <input
-                        type="text"
-                        id="subject"
-                        placeholder="Enter email subject">
-
-                </div>
-
-                <div class="form-group">
-
-                    <label>Tone</label>
-
-                    <select id="tone">
-
-                        <option>Formal</option>
-                        <option>Very Formal</option>
-                        <option>Friendly</option>
-                        <option>Professional</option>
-
-                    </select>
-
-                </div>
-
-                <div class="form-group">
-
-                    <label>Purpose</label>
-
-                    <textarea
-                        id="purpose"
-                        rows="6"
-                        placeholder="Describe your request..."></textarea>
-
-                </div>
-
-                <div class="button-row">
-
-                    <button id="generateBtn" class="primary-btn">
-                        ✨ Generate Email
-                    </button>
-
-                    <button id="clearBtn" class="secondary-btn">
-                        Clear
-                    </button>
-
-                </div>
-
             </div>
 
-            <!-- GENERATED EMAIL -->
-
-            <div class="card">
-
-                <div class="card-header">
-
-                    <h2>Generated Email</h2>
-
-                    <button id="copyBtn">
-                        📋 Copy
-                    </button>
-
+            <!-- TAB 2: TEMPLATES -->
+            <div id="tab-templates" class="tab-content">
+                <div class="card">
+                    <h1>Templates</h1>
+                    <p>Select a template from the right panel to automatically load it into the generator.</p>
                 </div>
+            </div>
 
-                <div id="emailPreview">
-
-                    <p>Your generated email will appear here...</p>
-
+            <!-- TAB 3: REGULATIONS -->
+            <div id="tab-regulations" class="tab-content">
+                <div class="card">
+                    <h1>Email Regulations & Etiquette</h1>
+                    <ul class="tips" style="font-size: 16px; line-height: 1.8;">
+                        <li>✔ <strong>Keep subject concise:</strong> The recipient should know what the email is about at a glance.</li>
+                        <li>✔ <strong>Be respectful:</strong> Always use formal salutations (Dear, Respected).</li>
+                        <li>✔ <strong>Mention your purpose early:</strong> Don't make the reader guess why you are writing.</li>
+                        <li>✔ <strong>Keep paragraphs short:</strong> Large blocks of text are hard to read.</li>
+                        <li>✔ <strong>End with gratitude:</strong> Always thank the recipient for their time.</li>
+                    </ul>
                 </div>
+            </div>
 
+            <!-- TAB 4: AUTHORITY TIPS -->
+            <div id="tab-authority" class="tab-content">
+                <div class="card">
+                    <h1>Meeting Authority Figures</h1>
+                    <ul class="tips" style="font-size: 16px; line-height: 1.8;">
+                        <li>👔 <strong>Dress professionally:</strong> First impressions matter.</li>
+                        <li>🚪 <strong>Knock before entering:</strong> Always wait for permission to enter their office.</li>
+                        <li>🙂 <strong>Introduce yourself politely:</strong> State your name and your department/class clearly.</li>
+                        <li>🗣 <strong>Mention you've emailed:</strong> "I am following up on the email I sent yesterday regarding..."</li>
+                        <li>🙏 <strong>Thank the authority:</strong> Appreciate them taking the time out of their busy schedule.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- TAB 5: SAVED EMAILS -->
+            <div id="tab-saved" class="tab-content">
+                <div class="card">
+                    <h1>Saved Emails</h1>
+                    <div id="savedEmailsContainer">
+                        <p>You haven't saved any emails yet.</p>
+                    </div>
+                </div>
             </div>
 
         </main>
 
         <!-- RIGHT PANEL -->
-
         <aside class="right-panel">
 
             <!-- TEMPLATES -->
-
             <div class="card">
-
                 <h2>Email Templates</h2>
-
-                <div class="template-card">
-                    📄 Leave Application
-                </div>
-
-                <div class="template-card">
-                    📄 Complaint Letter
-                </div>
-
-                <div class="template-card">
-                    📄 Internship Request
-                </div>
-
-                <div class="template-card">
-                    📄 Scholarship Request
-                </div>
-
-                <div class="template-card">
-                    📄 Meeting Request
-                </div>
-
+                <div class="template-card">📄 Leave Application</div>
+                <div class="template-card">📄 Complaint Letter</div>
+                <div class="template-card">📄 Internship Request</div>
+                <div class="template-card">📄 Scholarship Request</div>
+                <div class="template-card">📄 Meeting Request</div>
             </div>
 
             <!-- REGULATIONS -->
-
             <div class="card">
-
                 <h2>Email Regulations</h2>
-
                 <ul class="tips">
-
                     <li>✔ Keep subject concise.</li>
-
                     <li>✔ Be respectful.</li>
-
                     <li>✔ Mention your purpose early.</li>
-
                     <li>✔ Keep paragraphs short.</li>
-
                     <li>✔ End with gratitude.</li>
-
                 </ul>
-
             </div>
 
             <!-- AUTHORITY -->
-
             <div class="card">
-
                 <h2>Meeting Tips</h2>
-
                 <ul class="tips">
-
                     <li>👔 Dress professionally.</li>
-
                     <li>🚪 Knock before entering.</li>
-
                     <li>🙂 Introduce yourself politely.</li>
-
                     <li>🗣 Mention you've emailed already.</li>
-
                     <li>🙏 Thank the authority.</li>
-
                 </ul>
-
             </div>
 
             <!-- AI COACH -->
-
             <div class="card">
-
                 <h2>AI Email Coach</h2>
-
                 <div class="score-box">
-
                     <h3>Professional Score</h3>
-
-                    <div class="score-circle">
-
-                        92%
-
-                    </div>
-
+                    <div class="score-circle">92%</div>
                 </div>
-
                 <ul class="tips">
-
                     <li>⭐ Great subject line</li>
-
                     <li>⭐ Formal language</li>
-
                     <li>⭐ Clear structure</li>
-
                     <li>⚠ Keep email under 200 words</li>
-
                 </ul>
-
             </div>
 
         </aside>
@@ -281,11 +227,8 @@
     </div>
 
     <!-- FOOTER -->
-
     <footer>
-
         AI Formal Email Assistant • Made with ❤️
-
     </footer>
 
     <script src="script.js"></script>
